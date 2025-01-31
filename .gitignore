@@ -130,3 +130,9 @@ Content
 **/Assets
 
 *.uproject
+/.editorconfig
+/.vsconfig
+/shadertoolsconfig.json
+/Source/Aura.Target.cs
+/Source/AuraEditor.Target.cs
+/Source/Aura/Aura.Build.cs
