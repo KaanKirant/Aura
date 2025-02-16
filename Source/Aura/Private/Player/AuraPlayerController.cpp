@@ -85,13 +85,16 @@ void AAuraPlayerController::BeginPlay()
 	//Setting up the enhanced input system
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
 	//Crash if subsystem is null.
-	check(Subsystem);
-	//Adding aura mapping context to subsystem.
-	Subsystem->AddMappingContext(AuraContext, 0);
+	if(Subsystem)
+	{
+		//Adding aura mapping context to subsystem.
+		Subsystem->AddMappingContext(AuraContext, 0);
+	}
 
 	//Setting cursor details.
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
+	
 	FInputModeGameAndUI InputModeData;
 	InputModeData.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
 	InputModeData.SetHideCursorDuringCapture(false);
